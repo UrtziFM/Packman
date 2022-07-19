@@ -26,6 +26,31 @@
     border-radius: 10px;
 }
 
+.urtzi {
+    background-color: pink;
+    border: 0px;
+}
+
+.sheila {
+    background-color: greenyellow;
+    border: 0px;
+}
+
+.ekhi {
+    background-color: cyan;
+    border: 0px;
+}
+
+.maddi {
+    background-color: orange;
+    border: 0px;
+}
+
+.scared-ghost {
+    background-color: aquamarine;
+    border: 0px;
+}
+
 .pac-man {
     background-color: rgb(240, 240, 28);
     border-radius: 10px;

@@ -112,9 +112,45 @@ document.addEventListener('DOMContentLoaded', () => {
     // pacman eating pac-dots and getting points
     function pacDotEaten(){
     if(squares[pacmanCurrentIndex].classList.contains("pac-dot")){
-        score ++
-        scoreDisplay.innerHTML = score
-        squares[pacmanCurrentIndex].classList.remove("pac-dot")
+        score ++;
+        scoreDisplay.innerHTML = score;
+        squares[pacmanCurrentIndex].classList.remove("pac-dot");
         }
+    }
+
+    // create our Ghost template
+    class Ghost {
+        constructor(className, startIndex, speed){
+            this.className = className;
+            this.startIndex = startIndex;
+            this.speed = speed;
+            this.currentIndex = startIndex;
+            this.timerId = NaN;
+        }
+    }
+
+    ghosts = [
+        new Ghost('urtzi', 348, 250),
+        new Ghost('sheila', 376, 400),
+        new Ghost('ekhi', 351, 300),
+        new Ghost('maddi', 379, 500)
+    ]
+
+    // drawn ghosts onto grid
+    ghosts.forEach(ghost => {
+        squares[ghost.currentIndex].classList.add(ghost.className);
+        squares[ghost.currentIndex].classList.add('ghost');
+    });
+
+    // move ghosts randomly
+    ghosts.forEach(ghost => moveGhost(ghost));
+
+    // write the function to move ghost
+    function moveGhost(ghost){
+        const directions = [-1, +1, width, -width];
+        let direction = directions[Math.floor(Math.random()*directions.length)];
+        ghost.timerId = setInterval(function(){
+
+        }, ghost.speed)
     }
 })
