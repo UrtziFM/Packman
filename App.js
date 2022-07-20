@@ -150,6 +150,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const directions = [-1, +1, width, -width];
         let direction = directions[Math.floor(Math.random()*directions.length)];
         ghost.timerId = setInterval(function(){
+            // ghosts can move if there is not a wall or a ghost
+        if(!squares[ghost.currentIndex + direction].classList.contains('wall') && 
+            !squares[ghost.currentIndex + direction].classList.contains('ghost')){
+                //you can go here
+                //remove all ghosts related classes 
+                squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost');
+                //change the currentIndex to the new safe square
+                ghost.currentIndex += direction;
+                //redraw the ghost in the new safe square
+                squares[ghost.currentIndex].classList.add(ghost.className, 'ghost');
+
+                //else find and try a new direction
+            }else direction = directions[Math.floor(Math.random()*directions.length)]
 
         }, ghost.speed)
     }
